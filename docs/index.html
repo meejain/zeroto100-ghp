@@ -16,28 +16,50 @@
         </div>
     </header>
 
-    <nav class="table-of-contents">
-        <div class="container">
+    <div class="layout-wrapper">
+        <nav class="table-of-contents">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#prerequisites">Prerequisites</a></li>
-                <li><a href="#lab-1">Lab 1: Bootstrap & Development Flow</a>
+                <li><a href="#prerequisites">Prerequisites</a>
                     <ul>
-                        <li><a href="#exercise-1">Exercise 1: Bootstrap a Live Personal Site</a></li>
-                        <li><a href="#exercise-2">Exercise 2: Know the Development Flow</a></li>
+                        <li><a href="#checking-nodejs">Checking and Upgrading Node.js</a></li>
                     </ul>
                 </li>
-                <li><a href="#lab-2">Lab 2: AI Tooling & Building with AI</a>
+                <li><a href="#lab-1">Lab 1</a>
                     <ul>
-                        <li><a href="#exercise-3">Exercise 3: Setup AI Tooling & Build a Block</a></li>
+                        <li><a href="#exercise-1">Exercise 1: Bootstrap a Live Personal Site</a>
+                            <ul>
+                                <li><a href="#step-1-create">Step 1: Create Your Repository</a></li>
+                                <li><a href="#step-2-aem-sync">Step 2: Install AEM Code Sync</a></li>
+                                <li><a href="#step-3-author">Step 3: Author and Manage Content</a></li>
+                                <li><a href="#step-4-preview">Step 4: Preview and Publish</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exercise-2">Exercise 2: Know the Development Flow for EDS</a>
+                            <ul>
+                                <li><a href="#step-1-cli">Step 1: Install AEM CLI</a></li>
+                                <li><a href="#step-2-clone">Step 2: Clone Your Repository</a></li>
+                                <li><a href="#step-3-dev-server">Step 3: Start Local Development Server</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#lab-2">Lab 2</a>
+                    <ul>
+                        <li><a href="#exercise-3">Exercise 3: Setup AI Tooling (Configure MCP). Build a Block Using AI</a>
+                            <ul>
+                                <li><a href="#step-1-mcp">Step 1: Configure MCP Servers</a></li>
+                                <li><a href="#step-2-gh-cli">Step 2: Install GitHub CLI and Add Agent Skills</a></li>
+                                <li><a href="#step-3-build-block">Step 3: Build a Block Using AI</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#troubleshooting">Troubleshooting</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="container">
+        <main class="main-content">
         <section id="intro" class="section">
             <p class="intro-text">A hands-on lab where you'll be building your very own personal website from the ground up with ease. You'll be using Adobe Experience Manager with AI tools like Cursor, and by the end, you'll be walking away with your own live site — a keepsake you can share and continue evolving.</p>
         </section>
@@ -51,7 +73,7 @@
                 <li>Node.js (version 20 or higher) and npm installed on your local system</li>
             </ul>
 
-            <div class="subsection">
+            <div id="checking-nodejs" class="subsection">
                 <h3>Checking and Upgrading Node.js</h3>
                 <p>Check your current Node.js version:</p>
                 <pre><code>node --version</code></pre>
@@ -75,7 +97,7 @@ node -v # Must now show Node v20.x.y installed</code></pre>
                     <p><strong>Outcome:</strong> You will have a live personal website running on AEM Edge Delivery Services.</p>
                 </div>
 
-                <div class="step">
+                <div id="step-1-create" class="step">
                     <h4>Step 1: Create Your Repository from Boilerplate</h4>
                     <ol>
                         <li>Visit the <a href="https://github.com/meejain/zeroto100" target="_blank">Dev Day Boilerplate repository</a></li>
@@ -89,7 +111,7 @@ node -v # Must now show Node v20.x.y installed</code></pre>
                     </ol>
                 </div>
 
-                <div class="step">
+                <div id="step-2-aem-sync" class="step">
                     <h4>Step 2: Install AEM Code Sync</h4>
                     <ol>
                         <li>Visit <a href="https://github.com/apps/aem-code-sync/installations/new" target="_blank">AEM Code Sync GitHub App</a></li>
@@ -110,7 +132,7 @@ node -v # Must now show Node v20.x.y installed</code></pre>
                     </div>
                 </div>
 
-                <div class="step">
+                <div id="step-3-author" class="step">
                     <h4>Step 3: Author and Manage Content</h4>
                     <ol>
                         <li>Navigate to <a href="https://da.live/start" target="_blank">DA.live</a></li>
@@ -146,7 +168,7 @@ node -v # Must now show Node v20.x.y installed</code></pre>
                     </ol>
                 </div>
 
-                <div class="step">
+                <div id="step-4-preview" class="step">
                     <h4>Step 4: Preview and Publish Content</h4>
                     <ol>
                         <li>Open up the page <code>https://da.live/edit#/&lt;github-user&gt;/&lt;github-repo&gt;/index</code></li>
@@ -175,18 +197,18 @@ node -v # Must now show Node v20.x.y installed</code></pre>
                     <p><strong>Outcome:</strong> You will understand the local development workflow and see real-time changes reflected in your browser.</p>
                 </div>
 
-                <div class="step">
+                <div id="step-1-cli" class="step">
                     <h4>Step 1: Install AEM CLI (If not already done)</h4>
                     <pre><code>npm install -g @adobe/aem-cli</code></pre>
                 </div>
 
-                <div class="step">
+                <div id="step-2-clone" class="step">
                     <h4>Step 2: Clone Your Repository (via SSH or HTTPS)</h4>
                     <pre><code>git clone https://github.com/&lt;github-user&gt;/&lt;github-repo&gt;
 cd &lt;github-repo&gt;</code></pre>
                 </div>
 
-                <div class="step">
+                <div id="step-3-dev-server" class="step">
                     <h4>Step 3: Start Local Development Server</h4>
                     <pre><code>aem up</code></pre>
                     <p>This starts a local server at <code>http://localhost:3000/</code></p>
@@ -209,7 +231,7 @@ cd &lt;github-repo&gt;</code></pre>
                     <p><strong>Outcome:</strong> You will be able to leverage AI to accelerate your development work in EDS.</p>
                 </div>
 
-                <div class="step">
+                <div id="step-1-mcp" class="step">
                     <h4>Step 1: Configure MCP Servers</h4>
                     <p>Before adding the MCP server configuration, you need to get the access tokens first.</p>
                     
@@ -345,7 +367,7 @@ cd &lt;github-repo&gt;</code></pre>
                     </div>
                 </div>
 
-                <div class="step">
+                <div id="step-2-gh-cli" class="step">
                     <h4>Step 2: Install GitHub CLI and Add Agent Skills</h4>
                     
                     <div class="substep">
@@ -376,7 +398,7 @@ cd &lt;github-repo&gt;</code></pre>
                     </div>
                 </div>
 
-                <div class="step">
+                <div id="step-3-build-block" class="step">
                     <h4>Step 3: Build a Block Using AI</h4>
                     <p>Now that you have MCP servers configured, you can use AI to help you build blocks and manage content. Here are some sample workflows and prompts to get you started:</p>
                     
@@ -595,7 +617,8 @@ failed to run git: exit status 128</code></pre>
                 </div>
             </div>
         </section>
-    </main>
+        </main>
+    </div>
 
     <footer class="page-footer">
         <div class="container">

@@ -34,6 +34,15 @@ body {
     padding: 0 20px;
 }
 
+/* Layout Wrapper */
+.layout-wrapper {
+    display: flex;
+    min-height: calc(100vh - 160px);
+    max-width: 1600px;
+    margin: 20px auto 0;
+    gap: 0;
+}
+
 /* Header */
 .page-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
@@ -55,33 +64,37 @@ body {
     font-weight: 300;
 }
 
-/* Table of Contents */
+/* Table of Contents - Left Sidebar */
 .table-of-contents {
     background: var(--bg-white);
+    width: 300px;
+    min-width: 300px;
     padding: 30px 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    height: calc(100vh - 200px);
+    overflow-y: auto;
     position: sticky;
     top: 20px;
-    z-index: 100;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-left: 20px;
 }
 
 .table-of-contents h2 {
     color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
 }
 
 .table-of-contents ul {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    margin: 0;
+    padding: 0;
 }
 
-.table-of-contents > .container > ul {
-    justify-content: center;
+.table-of-contents > ul {
+    margin-left: 0;
 }
 
 .table-of-contents li {
@@ -91,29 +104,71 @@ body {
 .table-of-contents a {
     color: var(--text-color);
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 8px 12px;
+    display: block;
     transition: all 0.3s ease;
-    display: inline-block;
-    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-.table-of-contents a:hover,
+.table-of-contents a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    padding-left: 16px;
+}
+
 .table-of-contents a.active {
     background-color: var(--primary-color);
     color: white;
-    border-color: var(--primary-color);
+    font-weight: 600;
 }
 
 .table-of-contents ul ul {
-    margin-left: 20px;
-    display: block;
+    margin-left: 15px;
     margin-top: 5px;
 }
 
+.table-of-contents ul ul a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+}
+
+.table-of-contents ul ul ul {
+    margin-left: 15px;
+}
+
+.table-of-contents ul ul ul a {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    color: var(--text-light);
+}
+
+/* Custom scrollbar for table of contents */
+.table-of-contents::-webkit-scrollbar {
+    width: 6px;
+}
+
+.table-of-contents::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 3px;
+}
+
+.table-of-contents::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.table-of-contents::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
 /* Main Content */
-main {
-    padding: 40px 20px;
+.main-content {
+    flex: 1;
+    padding: 0 40px 40px 40px;
+    max-width: calc(100% - 340px);
+    margin-right: 20px;
 }
 
 .section {
@@ -443,7 +498,7 @@ img {
     color: white;
     padding: 40px 20px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 .page-footer p {
@@ -459,6 +514,27 @@ img {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        flex-direction: column;
+    }
+
+    .table-of-contents {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        max-height: 400px;
+        position: static;
+        margin: 20px;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding: 0 20px 40px 20px;
+        margin-right: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .page-header h1 {
         font-size: 1.8rem;
@@ -481,11 +557,12 @@ img {
     }
 
     .table-of-contents {
-        position: static;
+        padding: 20px 15px;
+        margin: 10px;
     }
 
-    .table-of-contents ul {
-        flex-direction: column;
+    .table-of-contents h2 {
+        font-size: 1.2rem;
     }
 
     .exercise, .step, .substep {
